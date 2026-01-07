@@ -2,19 +2,15 @@
 
 def garden_operations():
 
-	#Testing ValueError
 	print("Testing ValueError...")
 	x = int("abc")
 	
-	#Testing ZeroDivisionError
 	print("Testing ZeroDivisionError...")
 	print(10/0)
 
-	#Testing FileNotFoundError
 	print("Testing FileNotFoundError...")
 	open("unknown.txt")
 
-	#Testing KeyError
 	print("Testing KeyError...")
 	plant = {
 		"name": "Rose",

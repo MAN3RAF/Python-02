@@ -11,7 +11,7 @@ class PlantError(GardenError):
 
 
 class WaterError(GardenError):
-    '''Error class thats related to Water problems'''
+    """Error class thats related to Water problems"""
     pass
 
 
