@@ -1,68 +1,77 @@
 #!/usr/bin/env python3
 
-def garden_operations():
 
-	print("Testing ValueError...")
-	x = int("abc")
-	
-	print("Testing ZeroDivisionError...")
-	print(10/0)
+def garden_operations() -> None:
+    """Demonstrate various error types."""
+    print("Testing ValueError...")
+    int("abc")
 
-	print("Testing FileNotFoundError...")
-	open("unknown.txt")
+    print("Testing ZeroDivisionError...")
+    print(10/0)
 
-	print("Testing KeyError...")
-	plant = {
-		"name": "Rose",
-		"height": 15
-	}
-	print(plant["age"])
+    print("Testing FileNotFoundError...")
+    open("missing.txt")
+
+    print("Testing KeyError...")
+    plant = {
+        "name": "Rose",
+        "height": 15
+    }
+    print(plant["age"])
 
 
-def test_error_types():
+def test_error_types() -> None:
+    """Test and catch different error types."""
+    try:
+        print("Testing ValueError...")
+        int("abc")
 
-	try:
-		print("Testing ValueError...")
-		x = int("abc")
+    except ValueError:
+        print("Caught ValueError: invalid literal for int()")
 
-	except ValueError:
-		print("Caught ValueError: invalid literal for int()")
+    print("")
 
-	try:
-		print("\nTesting ZeroDivisionError...")
-		print(10/0)
+    try:
+        print("Testing ZeroDivisionError...")
+        print(10/0)
 
-	except ZeroDivisionError:
-		print("Caught ZeroDivisionError: division by zero")
+    except ZeroDivisionError:
+        print("Caught ZeroDivisionError: division by zero")
 
-	try:
-		print("\nTesting FileNotFoundError...")
-		open("unknown.txt")
+    print("")
 
-	except FileNotFoundError:
-		print("Caught FileNotFoundError: No such file 'missing.txt'")
+    try:
+        print("Testing FileNotFoundError...")
+        open("missing.txt")
 
-	try:
-		print("\nTesting KeyError...")
-		plant = {
-			"name": "Rose",
-			"height": 15
-			}
-		print(plant["age"])
+    except FileNotFoundError:
+        print("Caught FileNotFoundError: No such file 'missing.txt'")
 
-	except KeyError:
-		print("Caught KeyError: 'missing\_plant'")
+    print("")
 
-	try:
-		print("\nTesting multiple errors together...")
-		x = int("abc")
-		print(10/0)
-		open("unknown.txt")
-		garden = {"plant1": "Rose"}
-		print(garden["plant1"])
-	
-	except (ValueError, ZeroDivisionError, FileNotFoundError ,KeyError):
-		print("Caught an error, but program continues!")
+    try:
+        print("Testing KeyError...")
+        plant = {
+            "name": "Rose",
+            "height": 15
+            }
+        print(plant["missing_plant"])
+
+    except KeyError:
+        print("Caught KeyError: 'missing_plant'")
+
+    print("")
+
+    try:
+        print("Testing multiple errors together...")
+        int("abc")
+        print(10/0)
+        open("missing.txt")
+        garden = {"plant1": "Rose"}
+        print(garden["plant1"])
+
+    except (ValueError, ZeroDivisionError, FileNotFoundError, KeyError):
+        print("Caught an error, but program continues!")
 
 
 print("=== Garden Error Types Demo ===")
