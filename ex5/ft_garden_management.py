@@ -16,6 +16,7 @@ class GardenManager:
 
 	
 	def add_plants(plants):
+		print("Adding plants to garden...")
 		for plant in plants:
 			try:
 				if not plant:
@@ -26,8 +27,17 @@ class GardenManager:
 			except PlantError as e:
 				print(e)
 
-	def 
+	def water_plants(plants, water_level):
+		print("Watering plants...")
+		print("Opening watering system")
+		try:
+			for plant in 
+		
+		except:
+			pass
 
+	def check_planthealth(plants, water_level, sunlight_hours):
+		pass
 
 
 print("=== Garden Management System ===")
