@@ -20,24 +20,22 @@ def check_temperature(temp_str: str) -> None:
         print(f"Error: '{temp_str}' is not a valid number")
 
 
-print("=== Garden Temperature Checker ===")
+def test_temperature_input():
+    print("=== Garden Temperature Checker ===\n")
 
-print("")
+    check_temperature("25")
+    print("")
 
-check_temperature("25")
+    check_temperature("abc")
+    print("")
 
-print("")
+    check_temperature("100")
+    print("")
 
-check_temperature("abc")
+    check_temperature("-50")
+    print("")
 
-print("")
+    print("All tests completed - program didn't crash!")
 
-check_temperature("100")
 
-print("")
-
-check_temperature("-50")
-
-print("")
-
-print("All tests completed - program didn't crash!")
+test_temperature_input()
