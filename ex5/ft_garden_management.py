@@ -1,22 +1,22 @@
 #!/usr/bin/env python3
 
 
-class HealthError(Exception):
+class GardenError(Exception):
     """Base class for health-related errors."""
     pass
 
 
-class SunError(HealthError):
+class SunError(GardenError):
     """Error for sunlight issues."""
     pass
 
 
-class PlantError(HealthError):
+class PlantError(GardenError):
     """Error for plant issues."""
     pass
 
 
-class WaterError(HealthError):
+class WaterError(GardenError):
     """Error for water issues."""
     pass
 
@@ -35,7 +35,7 @@ class GardenManager:
     def __init__(self):
         pass
 
-    def add_plants(self, plants):
+    def add_plant(self, plants):
         """Add plants to the garden."""
         print("Adding plants to garden...")
         try:
@@ -64,7 +64,7 @@ class GardenManager:
         finally:
             print("Closing watering system (cleanup)")
 
-    def check_planthealth(self, plants):
+    def check_plant_health(self, plants):
         """Check the health of plants."""
         print("Checking plant health...")
         try:
@@ -72,7 +72,7 @@ class GardenManager:
                 w = plant.water_level
                 s = plant.sunlight_hours
                 if not (1 <= w <= 10) and not (2 <= s <= 12):
-                    raise HealthError(
+                    raise GardenError(
                         f"Error checking {plant.name}: Water Level {w} "
                         f"is too high or too low and Sunlight hours {s} "
                         "is too high or too low")
@@ -101,7 +101,7 @@ class GardenManager:
         except SunError as e:
             print(e)
 
-        except HealthError as e:
+        except GardenError as e:
             print(e)
 
     def check_watertank(self, water_tank):
@@ -119,8 +119,8 @@ class GardenManager:
         finally:
             print("System recovered and continuing...")
 
-def main():
-    """A main that controlls all"""
+def test_garden_management():
+    """Test the garden managment"""
     print("=== Garden Management System ===")
 
     print("")
@@ -133,7 +133,7 @@ def main():
 
     manager = GardenManager()
 
-    manager.add_plants(plants)
+    manager.add_plant(plants)
     plants.remove(empty_name)
     print("")
 
@@ -141,7 +141,7 @@ def main():
 
     print("")
 
-    manager.check_planthealth(plants)
+    manager.check_plant_health(plants)
 
     print("")
 
@@ -151,4 +151,4 @@ def main():
 
     print("Garden management system test complete!")
 
-main()
+test_garden_management()
