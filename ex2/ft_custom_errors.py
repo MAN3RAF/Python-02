@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+
 class GardenError(Exception):
     '''Base class for all garden Errors'''
     pass
@@ -14,42 +15,51 @@ class WaterError(GardenError):
     """Error class thats related to Water problems"""
     pass
 
+def test_custom_errors():
+    """Function that tests custom errors"""
+    print("Testing PlantError...")
+    try:
+        raise PlantError("The tomato plant is wilting!")
 
-print("=== Custom Garden Errors Demo ===")
+    except PlantError as e:
+        print(f"Caught PlantError: {e}")
 
-print("")
+    print("")
 
-print("Testing PlantError...")
-try:
-    raise PlantError("The tomato plant is wilting!")
+    print("Testing WaterError...")
+    try:
+        raise WaterError("Not enough water in the tank!")
 
-except PlantError as e:
-    print(f"Caught PlantError: {e}")
+    except WaterError as e:
+        print(f"Caught WaterError: {e}")
 
-print("")
+    print("")
 
-print("Testing WaterError...")
-try:
-    raise WaterError("Not enough water in the tank!")
+    print("Testing catching all garden errors...")
+    try:
+        raise PlantError("The tomato plant is wilting!")
 
-except WaterError as e:
-    print(f"Caught WaterError: {e}")
+    except GardenError as e:
+        print(f"Caught a garden error: {e}")
 
-print("")
+    try:
+        raise WaterError("Not enough water in the tank!")
 
-print("Testing catching all garden errors...")
-try:
-    raise PlantError("The tomato plant is wilting!")
+    except GardenError as e:
+        print(f"Caught a garden error: {e}")
 
-except GardenError as e:
-    print(f"Caught a garden error: {e}")
 
-try:
-    raise WaterError("Not enough water in the tank!")
+def main():
+    """Execute the custom errors test"""
+    print("=== Custom Garden Errors Demo ===")
 
-except GardenError as e:
-    print(f"Caught a garden error: {e}")
+    print("")
 
-print("")
+    test_custom_errors()
 
-print("All custom error types work correctly!")
+    print("")
+
+    print("All custom error types work correctly!")
+
+
+main()

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 
-def check_temperature(temp_str: str) -> str:
+def check_temperature(temp_str):
     """Check if temperature is safe for plants."""
     try:
         print(f"Testing temperature: {temp_str}")

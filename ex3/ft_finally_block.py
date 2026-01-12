@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 
-def water_plants(plant_list: list) -> None:
+def water_plants(plant_list):
     """Water plants with cleanup."""
     try:
         print("Opening watering system")
@@ -18,31 +18,34 @@ def water_plants(plant_list: list) -> None:
         print("Closing watering system (cleanup)")
 
 
-def test_watering_system() -> None:
+def test_watering_system():
     """Test the watering system."""
     good_list = ["tomato", "lettuce", "carrots"]
 
     bad_list = ["tomato", None]
 
     print("Testing normal watering...")
-
-    water_plants(good_list)
-
-    print("Watering completed successfully!")
+    try:
+        water_plants(good_list)
+    except Exception:
+        pass
+    finally:
+        print("Watering completed successfully!")
 
     print("")
 
     print("Testing with error...")
+    try:
+        water_plants(bad_list)
+    except Exception:
+        pass
+    finally:
+        print("\nCleanup always happens, even with errors!")
 
-    water_plants(bad_list)
+def main():
+    """Execute the test watering system"""
+    print("=== Garden Watering System ===\n")
 
+    test_watering_system()
 
-print("=== Garden Watering System ===")
-
-print("")
-
-test_watering_system()
-
-print("")
-
-print("Cleanup always happens, even with errors!")
+main()

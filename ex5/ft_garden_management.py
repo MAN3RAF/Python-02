@@ -23,8 +23,8 @@ class WaterError(HealthError):
 
 class Plant:
     """Represents a plant."""
-    def __init__(self, name: str, water_level: int,
-                 sunlight_hours: int) -> None:
+    def __init__(self, name, water_level,
+                 sunlight_hours):
         self.name = name
         self.water_level = water_level
         self.sunlight_hours = sunlight_hours
@@ -32,10 +32,10 @@ class Plant:
 
 class GardenManager:
     """Manages garden operations."""
-    def __init__(self) -> None:
+    def __init__(self):
         pass
 
-    def add_plants(self, plants: list) -> None:
+    def add_plants(self, plants):
         """Add plants to the garden."""
         print("Adding plants to garden...")
         try:
@@ -49,7 +49,7 @@ class GardenManager:
         except PlantError as e:
             print(e)
 
-    def water_plants(self, plants: list) -> None:
+    def water_plants(self, plants):
         """Water the plants."""
         print("Watering plants...")
         print("Opening watering system")
@@ -64,7 +64,7 @@ class GardenManager:
         finally:
             print("Closing watering system (cleanup)")
 
-    def check_planthealth(self, plants: list) -> None:
+    def check_planthealth(self, plants):
         """Check the health of plants."""
         print("Checking plant health...")
         try:
@@ -104,7 +104,7 @@ class GardenManager:
         except HealthError as e:
             print(e)
 
-    def check_watertank(self, water_tank: int) -> None:
+    def check_watertank(self, water_tank):
         """Check the water tank level."""
         print("Testing error recovery...")
         try:
@@ -119,33 +119,36 @@ class GardenManager:
         finally:
             print("System recovered and continuing...")
 
+def main():
+    """A main that controlls all"""
+    print("=== Garden Management System ===")
 
-print("=== Garden Management System ===")
+    print("")
 
-print("")
+    tomato = Plant("tomato", 5, 8)
+    lettuce = Plant("lettuce", 15, 5)
+    empty_name = Plant("", 10, 10)
 
-tomato = Plant("tomato", 5, 8)
-lettuce = Plant("lettuce", 15, 5)
-empty_name = Plant("", 10, 10)
+    plants = [tomato, lettuce, empty_name]
 
-plants = [tomato, lettuce, empty_name]
+    manager = GardenManager()
 
-manager = GardenManager()
+    manager.add_plants(plants)
+    plants.remove(empty_name)
+    print("")
 
-manager.add_plants(plants)
-plants.remove(empty_name)
-print("")
+    manager.water_plants(plants)
 
-manager.water_plants(plants)
+    print("")
 
-print("")
+    manager.check_planthealth(plants)
 
-manager.check_planthealth(plants)
+    print("")
 
-print("")
+    manager.check_watertank(0)
 
-manager.check_watertank(0)
+    print("")
 
-print("")
+    print("Garden management system test complete!")
 
-print("Garden management system test complete!")
+main()
