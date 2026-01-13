@@ -15,6 +15,7 @@ class WaterError(GardenError):
     """Error class thats related to Water problems"""
     pass
 
+
 def test_custom_errors():
     """Function that tests custom errors"""
     print("Testing PlantError...")

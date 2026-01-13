@@ -42,10 +42,12 @@ def test_watering_system():
     finally:
         print("\nCleanup always happens, even with errors!")
 
+
 def main():
     """Execute the test watering system"""
     print("=== Garden Watering System ===\n")
 
     test_watering_system()
+
 
 main()

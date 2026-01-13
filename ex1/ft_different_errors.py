@@ -3,7 +3,7 @@
 
 def garden_operations(nb):
     """Demonstrates different error types"""
-    
+
     if nb == 1:
         print("Testing ValueError...")
         int("abc")

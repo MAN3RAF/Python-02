@@ -119,6 +119,7 @@ class GardenManager:
         finally:
             print("System recovered and continuing...")
 
+
 def test_garden_management():
     """Test the garden managment"""
     print("=== Garden Management System ===")
@@ -150,5 +151,6 @@ def test_garden_management():
     print("")
 
     print("Garden management system test complete!")
+
 
 test_garden_management()
