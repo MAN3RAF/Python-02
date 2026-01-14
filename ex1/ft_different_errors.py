@@ -59,7 +59,7 @@ def test_error_types():
 
     try:
         garden_operations(5)
-    except (ValueError, ZeroDivisionError, FileNotFoundError, KeyError):
+    except Exception:
         print("Caught an error, but program continues!")
 
 
